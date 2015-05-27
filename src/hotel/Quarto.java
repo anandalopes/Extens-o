@@ -11,10 +11,10 @@ package hotel;
  */
 public class Quarto {
     
-    int Numero;
-    String tipo;
-    double valor;
-    int ocupado;
+    private int Numero;
+    private String tipo;
+    private double valor;
+    private int ocupado;
 
   public Quarto(int num,String ti,double vlr,int ocupado){
     this.Numero = num;
@@ -22,5 +22,6 @@ public class Quarto {
     this.valor = vlr;
     this.ocupado = ocupado;
 }
+  
     
 }
