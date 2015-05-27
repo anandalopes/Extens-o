@@ -44,37 +44,36 @@ public class form_reserva_incluir extends JFrame{
                     int num = Integer.parseInt(tipo1.getText());
                     int inicio = Integer.parseInt(entrada1.getText());
                     int fim = Integer.parseInt(Saida1.getText());
-                    int achou= 0;
-                    int achou1= 0;
-                    int w;
-                    int a=0;
-                    int b=0;
-                    for(w=0; w< dados.qtt_Cliente();w++ ){
+                    int posicao_cliente= 0;
+                    int posicao_quarto= 0;
+                    int verificacao_cliente=0;
+                    int verificacao_quarto=0;
+                    for(int w=0; w< dados.qtt_Cliente();w++ ){
                         if(cod_cli==dados.dados_cliente.get(w).cod){
-                            achou = w;
-                            a=1;
+                            posicao_cliente = w;
+                            verificacao_cliente=1;
                         }
                     }
                     for(int q=0; q< dados.qtdd_quarto();q++ ){
                         if(num == dados.dados_quarto.get(q).Numero){
                             if(dados.dados_quarto.get(q).ocupado == 0){
-                                achou1= q;
-                                b=1;
+                                posicao_quarto= q;
+                                verificacao_quarto=1;
                             }
                         }
                     }
-                    if(a==1 && b==1){
+                    if(verificacao_cliente==1 && verificacao_quarto==1){
                         
-                        dados.dados_quarto.get(achou1).ocupado = 1;
-                        dados.dados_cliente.get(achou).debito= (fim - inicio)*dados.dados_quarto.get(achou1).valor + dados.dados_cliente.get(achou).debito;
+                        dados.dados_quarto.get(posicao_quarto).ocupado = 1;
+                        dados.dados_cliente.get(posicao_cliente).debito= (fim - inicio)*dados.dados_quarto.get(posicao_quarto).valor + dados.dados_cliente.get(posicao_cliente).debito;
                         Reserva reser = new Reserva(Integer.parseInt(cod1.getText()), cod_cli, num, inicio, fim, "");
                         dados.Reserva(reser);
                         JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
-                                     + " "+dados.dados_cliente.get(achou).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
+                                     + " "+dados.dados_cliente.get(posicao_cliente).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).debito);
                                      
                     }
-                   a=0;
-                   b=0;
+                   verificacao_cliente=0;
+                   verificacao_quarto=0;
                    cod1.setText(String.valueOf(dados.qtdd_reserva()));
                    cod1.setEditable(false);
                    cod_cliente1.setText("");
