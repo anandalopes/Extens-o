@@ -78,11 +78,13 @@ public class form_reserva_incluir extends JFrame{
                             if(a==1 && b==1){
                                 
                                      dados.dados_quarto.get(achou1).ocupado = 1;
+                                     
+                                     
                                      dados.dados_cliente.get(achou).debito= (fim - inicio)*dados.dados_quarto.get(achou1).valor + dados.dados_cliente.get(achou).debito;
                                      a=0;
                                      b=0;
                                      JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
-                                     + " "+dados.dados_cliente.get(achou).Nome+"\n   Tipo Quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
+                                     + " "+dados.dados_cliente.get(achou).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
                                      
                             }
                                                            
