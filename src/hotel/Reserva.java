@@ -11,12 +11,12 @@ package hotel;
  */
 public class Reserva {
     
-    int cod;
-    int cod_cliente;
-    int tipo_quarto;
-    int entrada;
-    int saida;
-    String forma_pg;
+    private int cod;
+    private int cod_cliente;
+    private int tipo_quarto;
+    private int entrada;
+    private int saida;
+    private String forma_pg;
     
     public Reserva(int cd,int cod_cl,int tipo,int entrada,int saida, String forma){
     this.cod = cd;
@@ -27,7 +27,44 @@ public class Reserva {
     this.forma_pg= forma;
     
     }
-    
+    public void setCod (int cd){
+        this.cod=cd;
+    }
+     public void setCod_Cliente (int cd){
+        this.cod_cliente=cd;
+    }
+      public void setTipoQuarto (int cd){
+        this.tipo_quarto=cd;
+    }
+     public void setEntrada (int cd){
+        this.entrada=cd;
+    } 
+     public void setSaida (int cd){
+        this.saida=cd;
+    }
+      public void setForma_pg (String cd){
+        this.forma_pg=cd;
+    }
+     
+       public int getCod (){
+        return cod;
+    }
+       public int getCod_Cliente (){
+        return cod_cliente;
+    }
+      public int getTipoQuarto (){
+        return tipo_quarto;
+    }
+      public int getEntrada (){
+        return entrada;
+    }
+      public int getSaida (){
+        return saida;
+    }
+      
+      
+      
+      
     
     
 }
