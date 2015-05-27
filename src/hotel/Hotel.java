@@ -17,7 +17,7 @@ public class Hotel {
     public static void main(String[] args) {
         vetores dados = new vetores();
         Quarto q1 = new Quarto(10,"a",20.0,0);
-        Reserva r1 = new Reserva(0, 1, "a", 01, 03, "cheque");
+        Reserva r1 = new Reserva(0, 1, 1, 01, 03, "cheque");
         Quarto q2 = new Quarto(20,"a",20.0,0);
         Cliente c1 = new Cliente(0, "ananda", 000, "f", 10, 0);
         Cliente c2 = new Cliente(1, "Savio", 9098, "m", 18, 0);

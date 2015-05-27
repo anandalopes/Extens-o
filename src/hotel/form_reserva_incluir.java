@@ -66,12 +66,18 @@ public class form_reserva_incluir extends JFrame{
                         
                         dados.dados_quarto.get(achou1).ocupado = 1;
                         dados.dados_cliente.get(achou).debito= (fim - inicio)*dados.dados_quarto.get(achou1).valor + dados.dados_cliente.get(achou).debito;
-                        a=0;
-                        b=0;
+                        Reserva r1 = new Reserva(Integer.parseInt(cod.getText()), cod_cli, num, inicio, fim, "");
+                        dados.Reserva(r1);
                         JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
                                      + " "+dados.dados_cliente.get(achou).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
                                      
                     }
+                   a=0;
+                   b=0;
+                   cod1.setText(String.valueOf(dados.qtdd_reserva()));
+                   cod1.setEditable(false);
+                   cod_cliente1.setText("");
+                   
                 }
             }
         );
@@ -82,11 +88,10 @@ public class form_reserva_incluir extends JFrame{
                     public void actionPerformed(ActionEvent e){
                         
                         for(int i=0;i< dados.qtt_Cliente();i++){
-                            //if(dados.qtt_Cliente() > 0){
-                                b= "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome + b+"\n\n";
+
+                            b= "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome + b+"\n\n";
            
-                           // }
-                        }
+                       }
                     if(!(dados.qtt_Cliente()>0)){
                         JOptionPane.showMessageDialog(null,"Não Cliente cadastrado" );
                         b="";
