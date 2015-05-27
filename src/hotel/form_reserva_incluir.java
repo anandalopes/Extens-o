@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hotel;
 
 import java.awt.Container;
@@ -17,10 +12,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-/**
- *
- * @author Ananda
- */
 public class form_reserva_incluir extends JFrame{
     public form_reserva_incluir(final vetores dados){
         
@@ -30,80 +21,71 @@ public class form_reserva_incluir extends JFrame{
         setLocationRelativeTo( null );
         JLabel Label = new JLabel( "Inserir Reserva" );
         JLabel cod = new JLabel( "Codigo" );
-        int a = dados.qtdd_reserva();
-        JTextField cod1 = new JTextField(""+a); 
         JLabel cod_cliente = new JLabel( "Codigo do Cliente" );
-        JTextField cod_cliente1 = new JTextField(); 
-        JButton Lista_cliente = new JButton( "Lista cliente" );
         JLabel tipo = new JLabel( "Tipo Quarto" );
-        JTextField tipo1 = new JTextField(); 
         JLabel entrada = new JLabel( "Entrada" );
-        JTextField entrada1 = new JTextField(); 
         JLabel Saida = new JLabel( "Saida" );
-        JTextField Saida1 = new JTextField(); 
-        JButton lista_quarto = new JButton( "quarto" );
-         JButton Confirmar = new JButton( "Confirma" );
-         cod1.setEditable(false);
         
+        JTextField cod1 = new JTextField(""+dados.qtdd_reserva()); 
+        JTextField cod_cliente1 = new JTextField(); 
+        JTextField tipo1 = new JTextField(); 
+        JTextField entrada1 = new JTextField(); 
+        JTextField Saida1 = new JTextField();
+        JButton Lista_cliente = new JButton( "Lista cliente" );
+        JButton lista_quarto = new JButton( "quarto" );
+        JButton Confirmar = new JButton( "Confirma" );
+ 
+        cod1.setEditable(false);
         Confirmar.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        int cod_cli = Integer.parseInt(cod_cliente1.getText());
-                        int num = Integer.parseInt(tipo1.getText());
-                        int inicio = Integer.parseInt(entrada1.getText());
-                        int fim = Integer.parseInt(Saida1.getText());
-                        int achou= 0;
-                        int achou1= 0;
-                        int w;
-                        int a=0;
-                        int b=0;
-                        JOptionPane.showMessageDialog(null, dados.qtdd_quarto());
-                            for(w=0; w< dados.qtt_Cliente();w++ ){
-                                if(cod_cli==dados.dados_cliente.get(w).cod){
-                                    achou = w;
-                                    a=1;
-                                }
+            new ActionListener(){
+                public void actionPerformed(ActionEvent e){
+                    int cod_cli = Integer.parseInt(cod_cliente1.getText());
+                    int num = Integer.parseInt(tipo1.getText());
+                    int inicio = Integer.parseInt(entrada1.getText());
+                    int fim = Integer.parseInt(Saida1.getText());
+                    int achou= 0;
+                    int achou1= 0;
+                    int w;
+                    int a=0;
+                    int b=0;
+                    for(w=0; w< dados.qtt_Cliente();w++ ){
+                        if(cod_cli==dados.dados_cliente.get(w).cod){
+                            achou = w;
+                            a=1;
+                        }
+                    }
+                    for(int q=0; q< dados.qtdd_quarto();q++ ){
+                        if(num == dados.dados_quarto.get(q).Numero){
+                            if(dados.dados_quarto.get(q).ocupado == 0){
+                                achou1= q;
+                                b=1;
                             }
-                            for(int q=0; q< dados.qtdd_quarto();q++ ){
-                                if(num == dados.dados_quarto.get(q).Numero){
-                                    if(dados.dados_quarto.get(q).ocupado == 0){
-                                        achou1= q;
-                                        b=1;
-                                        System.out.println("a");
-                                    
-                                        }
-                                    
-                                }
-                            }
-                            if(a==1 && b==1){
-                                
-                                     dados.dados_quarto.get(achou1).ocupado = 1;
-                                     
-                                     
-                                     dados.dados_cliente.get(achou).debito= (fim - inicio)*dados.dados_quarto.get(achou1).valor + dados.dados_cliente.get(achou).debito;
-                                     a=0;
-                                     b=0;
-                                     JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
+                        }
+                    }
+                    if(a==1 && b==1){
+                        
+                        dados.dados_quarto.get(achou1).ocupado = 1;
+                        dados.dados_cliente.get(achou).debito= (fim - inicio)*dados.dados_quarto.get(achou1).valor + dados.dados_cliente.get(achou).debito;
+                        a=0;
+                        b=0;
+                        JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
                                      + " "+dados.dados_cliente.get(achou).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
                                      
-                            }
-                                                           
-                         
-//                                
                     }
                 }
+            }
         );
         Lista_cliente.addActionListener(
                 
                 new ActionListener(){
-                    String b;
+                    String b="";
                     public void actionPerformed(ActionEvent e){
                         
                         for(int i=0;i< dados.qtt_Cliente();i++){
-                            if(dados.qtt_Cliente() > 0){
+                            //if(dados.qtt_Cliente() > 0){
                                 b= "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome + b+"\n\n";
            
-                            }
+                           // }
                         }
                     if(!(dados.qtt_Cliente()>0)){
                         JOptionPane.showMessageDialog(null,"Não Cliente cadastrado" );
