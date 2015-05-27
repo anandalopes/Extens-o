@@ -39,7 +39,7 @@ public class form_reserva_incluir extends JFrame{
         Confirmar.addActionListener(
             new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    if(cod_cliente1.getText()=="" && tipo1.getText()=="" && entrada1.getText()=="" && Saida1.getText()==""){
+                    if(!(cod_cliente1.getText()=="" && tipo1.getText()=="" && entrada1.getText()=="" && Saida1.getText()=="")){
                     int cod_cli = Integer.parseInt(cod_cliente1.getText());
                     int num = Integer.parseInt(tipo1.getText());
                     int inicio = Integer.parseInt(entrada1.getText());
