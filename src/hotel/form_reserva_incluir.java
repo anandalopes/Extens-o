@@ -39,7 +39,7 @@ public class form_reserva_incluir extends JFrame{
         Confirmar.addActionListener(
             new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    
+                    if(cod_cliente1.getText()=="" && tipo1.getText()=="" && entrada1.getText()=="" && Saida1.getText()==""){
                     int cod_cli = Integer.parseInt(cod_cliente1.getText());
                     int num = Integer.parseInt(tipo1.getText());
                     int inicio = Integer.parseInt(entrada1.getText());
@@ -48,7 +48,9 @@ public class form_reserva_incluir extends JFrame{
                     int posicao_quarto= 0;
                     int verificacao_cliente=0;
                     int verificacao_quarto=0;
-                    for(int w=0; w< dados.qtt_Cliente();w++ ){
+                    int a=0;
+                    int b=0;
+                    for(int w=0; w< dados.qtdd_Cliente();w++ ){
                         if(cod_cli==dados.dados_cliente.get(w).cod){
                             posicao_cliente = w;
                             verificacao_cliente=1;
@@ -80,7 +82,7 @@ public class form_reserva_incluir extends JFrame{
                    tipo1.setText("");
                    entrada1.setText("");
                    Saida1.setText("");
-                   
+                    }
                 }
             }
         );
@@ -90,12 +92,12 @@ public class form_reserva_incluir extends JFrame{
                     String b="";
                     public void actionPerformed(ActionEvent e){
                         
-                        for(int i=0;i< dados.qtt_Cliente();i++){
+                        for(int i=0;i< dados.qtdd_Cliente();i++){
 
                             b= "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome + b+"\n\n";
            
                        }
-                    if(!(dados.qtt_Cliente()>0)){
+                    if(!(dados.qtdd_Cliente()>0)){
                         JOptionPane.showMessageDialog(null,"Não Cliente cadastrado" );
                         b="";
                     }

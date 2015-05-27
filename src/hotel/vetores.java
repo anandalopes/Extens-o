@@ -24,7 +24,7 @@ public class vetores {
     public void Cliente(Cliente c){
         dados_cliente.add(c);
  }
-    public int qtt_Cliente(){
+    public int qtdd_Cliente(){
         return dados_cliente.size();
  } 
     

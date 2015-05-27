@@ -27,7 +27,7 @@ public class form_reserva extends JFrame{
         JLabel Label = new JLabel( "Reserva" );
 
         
-        JButton Incluir = new JButton( "Incluir Reserca" );
+        JButton Incluir = new JButton( "Incluir Reserva" );
         JButton Apagar  = new JButton( "Apagar Reserva" );
 
         JButton Volta = new JButton( "Volta" );

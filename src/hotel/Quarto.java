@@ -22,6 +22,7 @@ public class Quarto {
     this.valor = vlr;
     this.ocupado = ocupado;
 }
+
   public int getNumero(){
       return Numero;
   }
@@ -38,5 +39,5 @@ public class Quarto {
       this.ocupado = c;
   }
   
-    
+
 }
