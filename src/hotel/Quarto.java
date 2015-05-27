@@ -22,6 +22,21 @@ public class Quarto {
     this.valor = vlr;
     this.ocupado = ocupado;
 }
+  public int getNumero(){
+      return Numero;
+  }
+  public String getTipo(){
+      return tipo;
+  }
+  public double getValor(){
+      return valor;
+  }
+  public int getOcupado(){
+      return ocupado;
+  }
+  public void setOcupado( int c){
+      this.ocupado = c;
+  }
   
     
 }

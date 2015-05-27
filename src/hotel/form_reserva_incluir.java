@@ -55,8 +55,8 @@ public class form_reserva_incluir extends JFrame{
                         }
                     }
                     for(int q=0; q< dados.qtdd_quarto();q++ ){
-                        if(num == dados.dados_quarto.get(q).Numero){
-                            if(dados.dados_quarto.get(q).ocupado == 0){
+                        if(num == dados.dados_quarto.get(q).getNumero()){
+                            if(dados.dados_quarto.get(q).getOcupado() == 0){
                                 posicao_quarto= q;
                                 verificacao_quarto=1;
                             }
@@ -64,12 +64,12 @@ public class form_reserva_incluir extends JFrame{
                     }
                     if(verificacao_cliente==1 && verificacao_quarto==1){
                         
-                        dados.dados_quarto.get(posicao_quarto).ocupado = 1;
-                        dados.dados_cliente.get(posicao_cliente).debito= (fim - inicio)*dados.dados_quarto.get(posicao_quarto).valor + dados.dados_cliente.get(posicao_cliente).debito;
+                        dados.dados_quarto.get(posicao_quarto).setOcupado(1);
+                        dados.dados_cliente.get(posicao_cliente).debito= (fim - inicio)*dados.dados_quarto.get(posicao_quarto).getValor() + dados.dados_cliente.get(posicao_cliente).debito;
                         Reserva reser = new Reserva(Integer.parseInt(cod1.getText()), cod_cli, num, inicio, fim, "");
                         dados.Reserva(reser);
                         JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
-                                     + " "+dados.dados_cliente.get(posicao_cliente).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).debito);
+                                     + " "+dados.dados_cliente.get(posicao_cliente).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).getTipo()+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).debito);
                                      
                     }
                    verificacao_cliente=0;
@@ -77,6 +77,9 @@ public class form_reserva_incluir extends JFrame{
                    cod1.setText(String.valueOf(dados.qtdd_reserva()));
                    cod1.setEditable(false);
                    cod_cliente1.setText("");
+                   tipo1.setText("");
+                   entrada1.setText("");
+                   Saida1.setText("");
                    
                 }
             }
@@ -112,8 +115,8 @@ public class form_reserva_incluir extends JFrame{
                     public void actionPerformed(ActionEvent e){
                         
                         for(int i=0;i< dados.qtdd_quarto();i++){
-                            if(dados.dados_quarto.get(i).ocupado == 0){
-                                b= "\nNumero:"+ dados.dados_quarto.get(i).Numero+ b+"\n\n" ;
+                            if(dados.dados_quarto.get(i).getOcupado() == 0){
+                                b= "\nNumero:"+ dados.dados_quarto.get(i).getNumero()+ b+"\n\n" ;
                             }
                             else{
                                 contar = contar +1;
