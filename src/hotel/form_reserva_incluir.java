@@ -82,7 +82,7 @@ public class form_reserva_incluir extends JFrame{
                                      a=0;
                                      b=0;
                                      JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
-                                     + " "+dados.dados_cliente.get(achou).Nome+"\n quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
+                                     + " "+dados.dados_cliente.get(achou).Nome+"\n  Quarto: "+dados.dados_quarto.get(achou1).tipo+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(achou).debito);
                                      
                             }
                                                            
