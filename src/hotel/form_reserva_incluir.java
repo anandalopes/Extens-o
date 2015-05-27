@@ -48,7 +48,7 @@ public class form_reserva_incluir extends JFrame{
                     int w;
                     int a=0;
                     int b=0;
-                    for(w=0; w< dados.qtt_Cliente();w++ ){
+                    for(w=0; w< dados.qtdd_Cliente();w++ ){
                         if(cod_cli==dados.dados_cliente.get(w).cod){
                             achou = w;
                             a=1;
@@ -87,12 +87,12 @@ public class form_reserva_incluir extends JFrame{
                     String b="";
                     public void actionPerformed(ActionEvent e){
                         
-                        for(int i=0;i< dados.qtt_Cliente();i++){
+                        for(int i=0;i< dados.qtdd_Cliente();i++){
 
                             b= "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome + b+"\n\n";
            
                        }
-                    if(!(dados.qtt_Cliente()>0)){
+                    if(!(dados.qtdd_Cliente()>0)){
                         JOptionPane.showMessageDialog(null,"Não Cliente cadastrado" );
                         b="";
                     }

@@ -34,7 +34,7 @@ public class menu extends JFrame{
         Cliente.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                 //       new form_Cliente(dados).setVisible(true);
+                        new form_cadastro(dados).setVisible(true);
                         dispose();
                     }
                 }

@@ -22,5 +22,5 @@ public class Quarto {
     this.valor = vlr;
     this.ocupado = ocupado;
 }
-    
+
 }
