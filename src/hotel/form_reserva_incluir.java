@@ -34,12 +34,15 @@ public class form_reserva_incluir extends JFrame{
         JButton Lista_cliente = new JButton( "Lista cliente" );
         JButton lista_quarto = new JButton( "quarto" );
         JButton Confirmar = new JButton( "Confirma" );
+          
  
         cod1.setEditable(false);
         Confirmar.addActionListener(
             new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    if(!(cod_cliente1.getText()=="" && tipo1.getText()=="" && entrada1.getText()=="" && Saida1.getText()=="")){
+                    if((cod_cliente1.getText().equals("")) || (tipo1.getText().equals("")) || (entrada1.getText().equals("") )||(Saida1.getText().equals(""))){
+                     JOptionPane.showMessageDialog(null,"Preencha os dados corretamente");}
+                    else{
                     int cod_cli = Integer.parseInt(cod_cliente1.getText());
                     int num = Integer.parseInt(tipo1.getText());
                     int inicio = Integer.parseInt(entrada1.getText());
@@ -73,6 +76,8 @@ public class form_reserva_incluir extends JFrame{
                         JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
                                      + " "+dados.dados_cliente.get(posicao_cliente).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).getTipo()+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).debito);
                                      
+                    }else{
+                        JOptionPane.showMessageDialog(null,"O Cliente não está cadastrado ou Quarto indisponivel ");
                     }
                    verificacao_cliente=0;
                    verificacao_quarto=0;
@@ -82,6 +87,7 @@ public class form_reserva_incluir extends JFrame{
                    tipo1.setText("");
                    entrada1.setText("");
                    Saida1.setText("");
+                                          
                     }
                 }
             }
@@ -94,7 +100,7 @@ public class form_reserva_incluir extends JFrame{
                         
                         for(int i=0;i< dados.qtdd_Cliente();i++){
 
-                            b= "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome + b+"\n\n";
+                            b= b+ "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome +"\n\n";
            
                        }
                     if(!(dados.qtdd_Cliente()>0)){
@@ -118,7 +124,7 @@ public class form_reserva_incluir extends JFrame{
                         
                         for(int i=0;i< dados.qtdd_quarto();i++){
                             if(dados.dados_quarto.get(i).getOcupado() == 0){
-                                b= "\nNumero:"+ dados.dados_quarto.get(i).getNumero()+ b+"\n\n" ;
+                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\n\n" ;
                             }
                             else{
                                 contar = contar +1;
