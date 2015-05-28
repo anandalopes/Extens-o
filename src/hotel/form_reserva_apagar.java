@@ -26,7 +26,7 @@ public class form_reserva_apagar extends JFrame{
         setLocationRelativeTo( null );
         JLabel Label = new JLabel( "Inserir Reserva" );
         JLabel cod_cliente = new JLabel( "Codigo do Cliente" );
-        JLabel tipo = new JLabel( "Numero do quarto" );
+        JLabel tipo = new JLabel( "Nº do quarto" );
 
         JTextField cod_cliente1 = new JTextField(); 
         JTextField tipo1 = new JTextField(); 
@@ -68,8 +68,6 @@ public class form_reserva_apagar extends JFrame{
                         
                         dados.dados_quarto.get(posicao_quarto).setOcupado(1);
                         
-                        Reserva reser = new Reserva(Integer.parseInt(cod1.getText()), cod_cli, num, inicio, fim, "");
-                        dados.Reserva(reser);
                         JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
                                      + " "+dados.dados_cliente.get(posicao_cliente).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).getTipo()+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).debito);
                                      
@@ -78,13 +76,8 @@ public class form_reserva_apagar extends JFrame{
                     }
                    verificacao_cliente=0;
                    verificacao_quarto=0;
-                   cod1.setText(String.valueOf(dados.qtdd_reserva()));
-                   cod1.setEditable(false);
                    cod_cliente1.setText("");
                    tipo1.setText("");
-                   entrada1.setText("");
-                   Saida1.setText("");
-                                          
                     }
                 }
             }
@@ -98,14 +91,14 @@ public class form_reserva_apagar extends JFrame{
                         
                         for(int i=0;i< dados.qtdd_quarto();i++){
                             if(dados.dados_quarto.get(i).getOcupado() == 1){
-                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\n\n" ;
+                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\nCliente: "+ dados.dados_cliente.get(dados.dados_quarto.get(i).g)).Nome +"\n" ;
                             }
                             else{
                                 contar = contar +1;
                             }
                         }
                     if((dados.qtdd_quarto()==contar)){
-                        JOptionPane.showMessageDialog(null,"Não tem quarto disponivel" );
+                        JOptionPane.showMessageDialog(null,"Não tem quarto reservado" );
                         b="";
                         contar =0;
                     }
@@ -129,11 +122,9 @@ public class form_reserva_apagar extends JFrame{
                 
         );
        Label.setBounds(  140 ,  10 ,  250 ,  25 ) ;
-       cod.setBounds( 10 ,  40 , 50 ,  25);
-       cod1.setBounds( 110 ,  40 , 50 ,  25);
        cod_cliente.setBounds( 10 ,  70 , 100 ,  25);
+       lista_reserva.setBounds( 180 ,  70 , 100 ,  25);
        cod_cliente1.setBounds( 110 ,  70 , 50 ,  25);
-       Lista_cliente.setBounds( 280 ,  70 , 150 ,  25);
        tipo.setBounds( 10 ,  100 , 100 ,  25);
        tipo1.setBounds( 110 ,  100 , 150 ,  25);
        Voltar.setBounds(120 ,  280 , 100 ,  25);
@@ -144,6 +135,7 @@ public class form_reserva_apagar extends JFrame{
        tela.add(tipo1);
        tela.add(Voltar);
         tela.add(Confirmar);
+        tela.add(lista_reserva);
        setVisible( true );}
      
     } 

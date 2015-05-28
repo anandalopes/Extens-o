@@ -43,7 +43,7 @@ public class form_reserva extends JFrame{
         Apagar.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                 //       new form_reserva_apagardados).setVisible(true);
+                        new form_reserva_apagar(dados).setVisible(true);
                         dispose();
                     }
                 }
