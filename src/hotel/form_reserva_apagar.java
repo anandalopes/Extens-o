@@ -15,9 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
 
-public class form_reserva_incluir extends JFrame{
+public class form_reserva_apagar extends JFrame{
 
-    public form_reserva_incluir(final vetores dados){
+    public form_reserva_apagar(final vetores dados){
         //JFormattedTextField entrada1;
         //MaskFormatter maskentrada;
         Container tela = getContentPane();
@@ -25,42 +25,25 @@ public class form_reserva_incluir extends JFrame{
         setSize( 490 , 350 );
         setLocationRelativeTo( null );
         JLabel Label = new JLabel( "Inserir Reserva" );
-        JLabel cod = new JLabel( "Codigo" );
         JLabel cod_cliente = new JLabel( "Codigo do Cliente" );
-        JLabel tipo = new JLabel( "Tipo Quarto" );
-        JLabel entrada = new JLabel( "Entrada" );
-        JLabel Saida = new JLabel( "Saida" );
-        
-        JTextField cod1 = new JTextField(""+dados.qtdd_reserva()); 
+        JLabel tipo = new JLabel( "Numero do quarto" );
+
         JTextField cod_cliente1 = new JTextField(); 
         JTextField tipo1 = new JTextField(); 
-        JTextField entrada1 = new JTextField(); 
-        
-      //   try {
-      //      maskentrada = new MaskFormatter("##/##/####");
-      //      maskentrada.setPlaceholderCharacter('_');
-      //  }
-      //  catch(ParseException excp){
-      //      entrada1 = new JFormattedTextField(maskentrada);
-            
-       // }
-        JTextField Saida1 = new JTextField();
-        JButton Lista_cliente = new JButton( "Lista cliente" );
-        JButton lista_quarto = new JButton( "quarto" );
+
+        JButton lista_reserva = new JButton( "Reserva" );
         JButton Confirmar = new JButton( "Confirma" );
           
  
-        cod1.setEditable(false);
         Confirmar.addActionListener(
             new ActionListener(){
                 public void actionPerformed(ActionEvent e){
-                    if((cod_cliente1.getText().equals("")) || (tipo1.getText().equals("")) || (entrada1.getText().equals("") )||(Saida1.getText().equals(""))){
+                    if((cod_cliente1.getText().equals("")) || (tipo1.getText().equals(""))){
                      JOptionPane.showMessageDialog(null,"Preencha os dados corretamente");}
                     else{
                     int cod_cli = Integer.parseInt(cod_cliente1.getText());
                     int num = Integer.parseInt(tipo1.getText());
-                    int inicio = Integer.parseInt(entrada1.getText());
-                    int fim = Integer.parseInt(Saida1.getText());
+
                     int posicao_cliente= 0;
                     int posicao_quarto= 0;
                     int verificacao_cliente=0;
@@ -84,7 +67,7 @@ public class form_reserva_incluir extends JFrame{
                     if(verificacao_cliente==1 && verificacao_quarto==1){
                         
                         dados.dados_quarto.get(posicao_quarto).setOcupado(1);
-                        dados.dados_cliente.get(posicao_cliente).debito= (fim - inicio)*dados.dados_quarto.get(posicao_quarto).getValor() + dados.dados_cliente.get(posicao_cliente).debito;
+                        
                         Reserva reser = new Reserva(Integer.parseInt(cod1.getText()), cod_cli, num, inicio, fim, "");
                         dados.Reserva(reser);
                         JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
@@ -106,30 +89,7 @@ public class form_reserva_incluir extends JFrame{
                 }
             }
         );
-        Lista_cliente.addActionListener(
-                
-                new ActionListener(){
-                    String b="";
-                    public void actionPerformed(ActionEvent e){
-                        
-                        for(int i=0;i< dados.qtdd_Cliente();i++){
-
-                            b= b+ "\n Codigo:"+ i+ "\nNome:"+ dados.dados_cliente.get(i).Nome +"\n\n";
-           
-                       }
-                    if(!(dados.qtdd_Cliente()>0)){
-                        JOptionPane.showMessageDialog(null,"Não Cliente cadastrado" );
-                        b="";
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, b );
-                        b="";
-                         }
-                }
-            }
-                
-        );
-        lista_quarto.addActionListener(
+        lista_reserva.addActionListener(
                 
                 new ActionListener(){
                     String b="";
@@ -137,7 +97,7 @@ public class form_reserva_incluir extends JFrame{
                     public void actionPerformed(ActionEvent e){
                         
                         for(int i=0;i< dados.qtdd_quarto();i++){
-                            if(dados.dados_quarto.get(i).getOcupado() == 0){
+                            if(dados.dados_quarto.get(i).getOcupado() == 1){
                                 b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\n\n" ;
                             }
                             else{
@@ -176,26 +136,13 @@ public class form_reserva_incluir extends JFrame{
        Lista_cliente.setBounds( 280 ,  70 , 150 ,  25);
        tipo.setBounds( 10 ,  100 , 100 ,  25);
        tipo1.setBounds( 110 ,  100 , 150 ,  25);
-       lista_quarto.setBounds( 280 ,  100 , 150 ,  25);
-       entrada.setBounds(10 ,  130 ,  100 ,  25 );
-       entrada1.setBounds( 110 ,  130 , 50 ,  25);
-       Saida.setBounds( 10 ,  160 , 50 ,  25);
-       Saida1.setBounds( 110 ,  160 , 50 ,  25);
        Voltar.setBounds(120 ,  280 , 100 ,  25);
        Confirmar.setBounds(10 ,  280 , 100 ,  25);
-       tela.add(cod);
-       tela.add(cod1);
        tela.add(cod_cliente);
        tela.add(cod_cliente1);
-       tela.add(Lista_cliente);
        tela.add(tipo);
        tela.add(tipo1);
-       tela.add(entrada1);
-       tela.add(entrada);
-       tela.add(Saida1);
-       tela.add(Saida);
        tela.add(Voltar);
-       tela.add(lista_quarto);
         tela.add(Confirmar);
        setVisible( true );}
      

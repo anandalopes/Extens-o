@@ -15,6 +15,7 @@ public class Quarto {
     private String tipo;
     private double valor;
     private int ocupado;
+ 
 
   public Quarto(int num,String ti,double vlr,int ocupado){
     this.Numero = num;
