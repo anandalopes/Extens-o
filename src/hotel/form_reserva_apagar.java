@@ -91,7 +91,7 @@ public class form_reserva_apagar extends JFrame{
                         
                         for(int i=0;i< dados.qtdd_quarto();i++){
                             if(dados.dados_quarto.get(i).getOcupado() == 1){
-                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\nCliente: "+ dados.dados_cliente.get(dados.dados_quarto.get(i).g)).Nome +"\n" ;
+                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\nCliente: "+ dados.dados_cliente.get(dados.dados_quarto.get(i).getCliente()).Nome +"\n" ;
                             }
                             else{
                                 contar = contar +1;
