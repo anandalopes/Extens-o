@@ -42,8 +42,7 @@ public class menu extends JFrame{
         Refeição.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                //    new form_refeição(dados).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    setVisible(false);
+                      new Form_refeicao(dados).setVisible(true);
                     }
                 }
                 
