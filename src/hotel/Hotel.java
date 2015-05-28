@@ -16,21 +16,21 @@ public class Hotel {
      */
     public static void main(String[] args) {
         vetores dados = new vetores();
-        Quarto q1 = new Quarto(01,"simples",20.0,0);
-        Quarto q2 = new Quarto(02,"simples",20.0,0);
-        Quarto q3 = new Quarto(03,"simples",20.0,0);
-        Quarto q4 = new Quarto(04,"simples",20.0,0);
-        Quarto q5 = new Quarto(05,"simples",20.0,0);
-        Quarto q6 = new Quarto(06,"simples",20.0,0);
-        Quarto q7 = new Quarto(07,"simples",20.0,0);
-        Quarto q8 = new Quarto(12,"suite",120.0,0);
-        Quarto q9 = new Quarto(16,"suite",120.0,0);
-        Quarto q10 = new Quarto(13,"suite",20.0,0);
-        Cliente c1 = new Cliente(0, "ananda", 000, "f", 10, 0);
+        Quarto q1 = new Quarto(01,"Simples",20.0,0,99);
+        Quarto q2 = new Quarto(02,"Simples",20.0,0,99);
+        Quarto q3 = new Quarto(03,"Simples",20.0,0,99);
+        Quarto q4 = new Quarto(04,"Simples",20.0,0,99);
+        Quarto q5 = new Quarto(05,"Simples",20.0,0,99);
+        Quarto q6 = new Quarto(06,"Simples",20.0,0,99);
+        Quarto q7 = new Quarto(07,"Simples",20.0,0,99);
+        Quarto q8 = new Quarto(12,"Suite",120.0,0,99);
+        Quarto q9 = new Quarto(16,"Suite",120.0,0,99);
+        Quarto q10 = new Quarto(13,"Suite",20.0,0,99);
+        Cliente c1 = new Cliente(0, "Ananda", 000, "f", 10, 0);
         Cliente c2 = new Cliente(1, "Savio", 9098, "m", 17, 0);
-        Cliente c3 = new Cliente(2, "alberto", 2342, "m", 13, 0);
-        Cliente c4 = new Cliente(3, "everson", 8090, "m", 10, 0);
-        Cliente c5 = new Cliente(4, "romulo", 6787, "m", 19, 0);
+        Cliente c3 = new Cliente(2, "Alberto", 2342, "m", 13, 0);
+        Cliente c4 = new Cliente(3, "Everson", 8090, "m", 10, 0);
+        Cliente c5 = new Cliente(4, "Romulo", 6787, "m", 19, 0);
         
         dados.Quarto(q1);
         dados.Quarto(q2);

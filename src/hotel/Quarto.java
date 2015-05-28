@@ -15,13 +15,14 @@ public class Quarto {
     private String tipo;
     private double valor;
     private int ocupado;
- 
+    private int cod_cliente;
 
-  public Quarto(int num,String ti,double vlr,int ocupado){
+  public Quarto(int num,String ti,double vlr,int ocupado, int cliente){
     this.Numero = num;
     this.tipo= ti;
     this.valor = vlr;
     this.ocupado = ocupado;
+    this.cod_cliente = cliente;
 }
 
   public int getNumero(){
@@ -38,6 +39,9 @@ public class Quarto {
   }
   public void setOcupado( int c){
       this.ocupado = c;
+  }
+  public int getCliente(){
+      return cod_cliente;
   }
   
 
