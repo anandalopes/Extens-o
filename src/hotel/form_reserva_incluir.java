@@ -84,6 +84,7 @@ public class form_reserva_incluir extends JFrame{
                     if(verificacao_cliente==1 && verificacao_quarto==1){
                         
                         dados.dados_quarto.get(posicao_quarto).setOcupado(1);
+                        dados.dados_quarto.get(posicao_quarto).setCliente(cod_cli);
                         dados.dados_cliente.get(posicao_cliente).debito= (fim - inicio)*dados.dados_quarto.get(posicao_quarto).getValor() + dados.dados_cliente.get(posicao_cliente).debito;
                         Reserva reser = new Reserva(Integer.parseInt(cod1.getText()), cod_cli, num, inicio, fim, "");
                         dados.Reserva(reser);

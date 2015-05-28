@@ -40,6 +40,9 @@ public class Quarto {
   public void setOcupado( int c){
       this.ocupado = c;
   }
+  public void setCliente( int c){
+      this.cod_cliente = c;
+  }
   public int getCliente(){
       return cod_cliente;
   }
