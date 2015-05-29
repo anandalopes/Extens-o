@@ -43,6 +43,7 @@ public class menu extends JFrame{
                 new ActionListener(){
                     public void actionPerformed(ActionEvent e){
                       new Form_refeicao(dados).setVisible(true);
+                      dispose();
                     }
                 }
                 
@@ -50,7 +51,7 @@ public class menu extends JFrame{
         forma_pagamento.addActionListener(
                 new ActionListener(){
                     public void actionPerformed(ActionEvent e){
-                 //   new form_Pagamento(dados).setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    new form_pagamento(dados).setVisible(true);
                         dispose();
                     }
                 }

@@ -1,9 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package hotel;
+ package hotel;
 
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -17,20 +12,20 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class Form_refeicao extends JFrame {
-    public Form_refeicao(vetores dados){
+public class form_pagamento extends JFrame {
+    public form_pagamento(vetores dados){
         
         Container tela = getContentPane();
         setLayout(null);
         setSize( 490 , 350 );
         setLocationRelativeTo( null );
-        JLabel Label = new JLabel( "Refeição" );
+        JLabel Label = new JLabel( "Pagamento" );
         JLabel cod = new JLabel( "Codigo do Cliente" );
-        JLabel valor_ref = new JLabel( "Valor da Refeição" );
+        JLabel valor_ref = new JLabel( "Forma de pagamento" );
         
         JTextField cod1 = new JTextField(); 
         JTextField valor_ref1 = new JTextField(); 
-        JButton Debitar = new JButton( "Debitar" );
+        JButton Debitar = new JButton( "Pagar" );
         JButton Voltar = new JButton( "Voltar" );
         
         
@@ -66,9 +61,8 @@ public class Form_refeicao extends JFrame {
                     int verificacao_cliente1=0;
                     int verificacao_cliente=0;
                     int cod_cliente = Integer.parseInt(cod1.getText());
-                    double valor_ref2 = Double.parseDouble(valor_ref1.getText());
                     for(int i = 0; i<dados.qtdd_Cliente();i++){
-                        if(dados.dados_cliente.get(i).getCod()== cod_cliente){
+                        if(dados.dados_cliente.get(i).getCod() == cod_cliente){
                              verificacao_cliente1=1+verificacao_cliente1;
                              System.out.println("teste1");
                         }
@@ -79,9 +73,10 @@ public class Form_refeicao extends JFrame {
                         
                     }
                     if( verificacao_cliente<dados.qtdd_Cliente()&&verificacao_cliente1==1){
-                        dados.dados_cliente.get(cod_cliente).setDebito(dados.dados_cliente.get(cod_cliente).getDebito() + valor_ref2);
-                        System.out.println("valor:"+dados.dados_cliente.get(cod_cliente).getDebito());
-                         JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso");
+                        
+                         JOptionPane.showMessageDialog(null,"Pagamento efetuado com sucesso \n"+dados.dados_cliente.get(cod_cliente).getNome()+"\n Valor: "+dados.dados_cliente.get(cod_cliente).getDebito()+"\n Forma de pagamento"+valor_ref1.getText());
+                        dados.dados_cliente.get(cod_cliente).setDebito(0);
+                        System.out.println("Pagamento efetuado com sucesso \n"+dados.dados_cliente.get(cod_cliente).getNome()+"\n Valor: "+dados.dados_cliente.get(cod_cliente).getDebito()+"\n Forma de pagamento"+valor_ref1.getText());
                     }
                     
                    
@@ -102,4 +97,4 @@ public class Form_refeicao extends JFrame {
     
 
 }
-    
+

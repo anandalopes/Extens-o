@@ -51,14 +51,14 @@ public class form_reserva_apagar extends JFrame{
                     int a=0;
                     int b=0;
                     for(int w=0; w< dados.qtdd_Cliente();w++ ){
-                        if(cod_cli==dados.dados_cliente.get(w).cod){
+                        if(cod_cli==dados.dados_cliente.get(w).getCod()){
                             posicao_cliente = w;
                             verificacao_cliente=1;
                         }
                     }
                     for(int q=0; q< dados.qtdd_quarto();q++ ){
                         if(num == dados.dados_quarto.get(q).getNumero()){
-                            if(dados.dados_quarto.get(q).getOcupado() == 0){
+                            if(dados.dados_quarto.get(q).getOcupado() == 1){
                                 posicao_quarto= q;
                                 verificacao_quarto=1;
                             }
@@ -66,11 +66,12 @@ public class form_reserva_apagar extends JFrame{
                     }
                     if(verificacao_cliente==1 && verificacao_quarto==1){
                         
-                        dados.dados_quarto.get(posicao_quarto).setOcupado(1);
+                        dados.dados_quarto.get(posicao_quarto).setOcupado(0);
                         
-                        JOptionPane.showMessageDialog(null, "pronto reservar concluida para: \n cliente:"
-                                     + " "+dados.dados_cliente.get(posicao_cliente).Nome+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).getTipo()+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).debito);
-                                     
+                        JOptionPane.showMessageDialog(null, "pronto reserva cancelada para: \n cliente:"
+                                     + " "+dados.dados_cliente.get(posicao_cliente).getNome()+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).getTipo()+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).getDebito());
+                        System.out.println("pronto reserva cancelada para: \n cliente:"
+                                     + " "+dados.dados_cliente.get(posicao_cliente).getNome()+"\nTipo Quarto: "+dados.dados_quarto.get(posicao_quarto).getTipo()+"\n Valor a pagar pela diarias:"+ dados.dados_cliente.get(posicao_cliente).getDebito());             
                     }else{
                         JOptionPane.showMessageDialog(null,"O Cliente não está cadastrado ou Quarto indisponivel ");
                     }
@@ -91,7 +92,7 @@ public class form_reserva_apagar extends JFrame{
                         
                         for(int i=0;i< dados.qtdd_quarto();i++){
                             if(dados.dados_quarto.get(i).getOcupado() == 1){
-                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\nCliente: "+ dados.dados_cliente.get(dados.dados_quarto.get(i).getCliente()).Nome +"\n" ;
+                                b= b+"\nNumero:"+ dados.dados_quarto.get(i).getNumero()+"\nCliente: "+ dados.dados_cliente.get(dados.dados_quarto.get(i).getCliente()).getNome() +"\n" ;
                             }
                             else{
                                 contar = contar +1;

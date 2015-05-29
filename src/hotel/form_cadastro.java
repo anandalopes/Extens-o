@@ -89,6 +89,7 @@ public class form_cadastro extends JFrame{
                     int data2 = Integer.parseInt(data1.getText());
                     Cliente cl = new Cliente(cod_cliente ,nome_cliente1.getText(),cpf2,sexo1.getText(),data2,0.0);
                     JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso");
+                        System.out.println("Cadastro realizado com sucesso");
                     dados.Cliente(cl);
                     cod1.setText(""+dados.qtdd_Cliente());
                     }
