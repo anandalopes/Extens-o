@@ -18,9 +18,7 @@ import javax.swing.text.MaskFormatter;
 public class form_reserva_incluir extends JFrame{
 
     public form_reserva_incluir(final vetores dados){
-        //JFormattedTextField entrada1;
-        //MaskFormatter maskentrada;
-        Container tela = getContentPane();
+       Container tela = getContentPane();
         setLayout(null);
         setSize( 490 , 350 );
         setLocationRelativeTo( null );
